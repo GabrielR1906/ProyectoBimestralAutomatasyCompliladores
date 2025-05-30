@@ -1,0 +1,47 @@
+iniciar_proceso
+
+// declaracion de variables
+definir numero vidas
+definir decimal energia
+definir texto mensaje
+definir bandera sistema_activo
+
+// asignacion de valores iniciales
+vidas := 5
+energia := 87.6
+mensaje := 'Inicializando simulación espacial...'
+sistema_activo := cierto
+
+// notificar estado inicial
+enviar mensaje
+
+// ciclo principal de chequeo
+durante (sistema_activo == cierto) {
+    si energia < 20.0 entonces {
+        enviar '¡Advertencia! Energía crítica'
+        sistema_activo := falso
+    } sino {
+        energia := energia - 5.0
+        enviar 'Energía estable. Continuando...'
+    }
+    si vidas <= 0 entonces {
+        enviar 'No hay vidas disponibles. Fin de la simulación.'
+        sistema_activo := falso
+    }
+}
+findurante
+
+// ciclo de recuperación de vidas
+por (vidas desde 0 hasta 3 paso 1) {
+    enviar 'Recuperando vida...'
+}
+
+// decision final
+si energia > 50.0 entonces {
+    enviar 'Estado óptimo. Misión exitosa.'
+} sientonces {
+    enviar 'Revisión de misión requerida.'
+}
+finsi
+
+terminar_proceso
